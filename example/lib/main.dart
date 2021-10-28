@@ -30,6 +30,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TagController tagController = TagController();
+
+  String a = '';
+
+  @override
+  void initState() {
+    tagController.addListener(() {
+      setState(() {
+        a = tagController.a;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +52,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          const Center(child: ImageTagContainer()),
-          const SizedBox(
-            height: 10,
+          Center(
+              child: ImageTagContainer(
+            controller: tagController,
+          )),
+          SizedBox(
+            height: 20,
+            child: Text(a),
           ),
+          ElevatedButton(
+              onPressed: () {
+                tagController.ganti();
+              },
+              child: Text('data'))
         ],
       ),
     );

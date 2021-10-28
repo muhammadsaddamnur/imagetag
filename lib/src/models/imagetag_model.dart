@@ -8,7 +8,7 @@ class ImageTagModel {
 }
 
 class TagData {
-  String id;
+  int id;
   String value;
   double x;
   double y;
