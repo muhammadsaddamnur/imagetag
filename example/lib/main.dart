@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Center(
               child: ImageTagContainer(
             controller: tagController,
+            isEdit: true,
           )),
           SizedBox(
             height: 20,
@@ -64,7 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 tagController.ganti();
               },
-              child: Text('data'))
+              child: const Text('data')),
+          SizedBox(
+              height: 150,
+              child: ImageTagContainer(
+                controller: tagController,
+                isEdit: false,
+              )),
         ],
       ),
     );
